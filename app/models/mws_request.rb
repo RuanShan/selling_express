@@ -94,7 +94,7 @@ class MwsRequest < ActiveRecord::Base
 		#	self.amazon_request_id = response_xml.request_id
 		#	self.save!
 		#end
-
+    parsed_results = response_xml.parse
 		# Create a new response object, link to the initial request
 		response = MwsResponse.new(
 			:request_type => self.request_type,
@@ -115,18 +115,18 @@ class MwsRequest < ActiveRecord::Base
 		#puts "no error code"
 
 		# assign next token if given
-		response.next_token = response_xml.next_token
+		response.next_token = parsed_results.next_token
 
     # if this is a response containing orders
 		if self.request_type=="ListOrders"
-			response.last_updated_before = response_xml.last_updated_before
+			response.last_updated_before = parsed_results.last_updated_before
 			response.save!
 
 			#puts "    PROCESS_RESPONSE: ListOrders response contains #{response_xml.orders.count} orders"
 
 			# Process all orders first
 			amazon_orders = Array.new
-			response_xml.orders.each do |o|
+			parsed_results.each do |o|
 			  amz_order = MwsOrder.find_by_amazon_order_id(o.amazon_order_id)
 				if amz_order.nil?
 				  amz_order = MwsOrder.create(:amazon_order_id => o.amazon_order_id, :mws_response_id=>response.id, :store_id=>self.store_id, :purchase_date=>o.purchase_date)
@@ -134,7 +134,7 @@ class MwsRequest < ActiveRecord::Base
 				else
 					#puts "      PROCESS_RESPONSE: existing order #{amz_order.amazon_order_id} being updated, id:#{amz_order.id}, adding to array"
 				end
-				h = o.as_hash
+				h = o.attributes #o.as_hash
 				h[:mws_response_id] = response.id #TODO creating an orphan mws_response object by changing the response pointer
 				amz_order.update_attributes(h)
 				amazon_orders << amz_order
@@ -143,7 +143,7 @@ class MwsRequest < ActiveRecord::Base
 
 			#puts "    PROCESS_RESPONSE: done building array, #{amazon_orders.count} orders"
 			# Then get item detail behind each order
-			sleep_time = MwsOrder::get_sleep_time_per_order(amazon_orders.count)
+			sleep_time = MwsOrder.get_sleep_time_per_order(amazon_orders.count)
 			amazon_orders.each do |amz_order|
 				sleep sleep_time
 				#puts "      PROCESS_RESPONSE: going to process order #{amz_order.amazon_order_id}"

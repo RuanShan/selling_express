@@ -32,7 +32,7 @@ class CreateMwsOrders < ActiveRecord::Migration
       t.string :buyer_name
       t.string :buyer_email
       t.string :shipment_service_level_category
-
+      t.boolean :is_prime
       t.timestamps null: false
     end
   end

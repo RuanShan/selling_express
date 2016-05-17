@@ -47,7 +47,7 @@ class Store < ActiveRecord::Base
 
 	def reprocess_orders_missing_items
 		orders_array = get_orders_missing_items
-		sleep_time = MwsOrder::get_sleep_time_per_order(orders_array.count)
+		sleep_time = MwsOrder.get_sleep_time_per_order(orders_array.count)
 		orders_array.each do |o|
 			o.reprocess_order
 			sleep sleep_time

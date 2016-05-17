@@ -32,7 +32,7 @@ gem 'simple_form'
 gem 'paperclip'
 gem 'kaminari'	 # pagination
 gem 'peddler'    # mws api
-gem 'mws-orders' # mws order api
+gem 'mws-orders', github: 'RuanShan/mws-orders', branch: "master"# mws order api
 #gem "crummy", "~> 1.8.0" #breadcrumbs
 
 # Use ActiveModel has_secure_password
