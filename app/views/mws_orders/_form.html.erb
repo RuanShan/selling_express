@@ -1,0 +1,38 @@
+<%= simple_form_for(@mws_order) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :amazon_order_id %>
+    <%= f.input :seller_order_id %>
+    <%= f.input :purchase_date %>
+    <%= f.input :last_update_date %>
+    <%= f.input :order_status %>
+    <%= f.input :fulfillment_channel %>
+    <%= f.input :sales_channel %>
+    <%= f.input :order_channel %>
+    <%= f.input :ship_service_level %>
+    <%= f.input :amount %>
+    <%= f.input :currency_code %>
+    <%= f.input :address_line_1 %>
+    <%= f.input :address_line_2 %>
+    <%= f.input :address_line_3 %>
+    <%= f.input :city %>
+    <%= f.input :county %>
+    <%= f.input :district %>
+    <%= f.input :state_or_region %>
+    <%= f.input :postal_code %>
+    <%= f.input :country_code %>
+    <%= f.input :phone %>
+    <%= f.input :number_of_items_shipped %>
+    <%= f.input :number_of_items_unshipped %>
+    <%= f.input :marketplace_id %>
+    <%= f.input :buyer_name %>
+    <%= f.input :buyer_email %>
+    <%= f.input :ship_service_level_category %>
+    <%= f.input :mws_response_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

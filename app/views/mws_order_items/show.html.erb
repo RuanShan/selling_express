@@ -1,0 +1,92 @@
+<div class="page-header">
+  <%= link_to mws_order_items_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_mws_order_item_path(@mws_order_item), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show mws_order_item</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Asin:</dt>
+  <dd><%= @mws_order_item.asin %></dd>
+
+  <dt>Amazon order item:</dt>
+  <dd><%= @mws_order_item.amazon_order_item_id %></dd>
+
+  <dt>Seller sku:</dt>
+  <dd><%= @mws_order_item.seller_sku %></dd>
+
+  <dt>Title:</dt>
+  <dd><%= @mws_order_item.title %></dd>
+
+  <dt>Quantity ordered:</dt>
+  <dd><%= @mws_order_item.quantity_ordered %></dd>
+
+  <dt>Quantity shipped:</dt>
+  <dd><%= @mws_order_item.quantity_shipped %></dd>
+
+  <dt>Item price:</dt>
+  <dd><%= @mws_order_item.item_price %></dd>
+
+  <dt>Item price currency:</dt>
+  <dd><%= @mws_order_item.item_price_currency %></dd>
+
+  <dt>Shipping price:</dt>
+  <dd><%= @mws_order_item.shipping_price %></dd>
+
+  <dt>Shipping price currency:</dt>
+  <dd><%= @mws_order_item.shipping_price_currency %></dd>
+
+  <dt>Gift price:</dt>
+  <dd><%= @mws_order_item.gift_price %></dd>
+
+  <dt>Gift price currency:</dt>
+  <dd><%= @mws_order_item.gift_price_currency %></dd>
+
+  <dt>Item tax:</dt>
+  <dd><%= @mws_order_item.item_tax %></dd>
+
+  <dt>Item tax currency:</dt>
+  <dd><%= @mws_order_item.item_tax_currency %></dd>
+
+  <dt>Shipping tax:</dt>
+  <dd><%= @mws_order_item.shipping_tax %></dd>
+
+  <dt>Shipping tax currency:</dt>
+  <dd><%= @mws_order_item.shipping_tax_currency %></dd>
+
+  <dt>Gift tax:</dt>
+  <dd><%= @mws_order_item.gift_tax %></dd>
+
+  <dt>Gift tax currency:</dt>
+  <dd><%= @mws_order_item.gift_tax_currency %></dd>
+
+  <dt>Shipping discount:</dt>
+  <dd><%= @mws_order_item.shipping_discount %></dd>
+
+  <dt>Shipping discount currency:</dt>
+  <dd><%= @mws_order_item.shipping_discount_currency %></dd>
+
+  <dt>Promotion discount:</dt>
+  <dd><%= @mws_order_item.promotion_discount %></dd>
+
+  <dt>Promotion discount currency:</dt>
+  <dd><%= @mws_order_item.promotion_discount_currency %></dd>
+
+  <dt>Gift wrap level:</dt>
+  <dd><%= @mws_order_item.gift_wrap_level %></dd>
+
+  <dt>Gift message text:</dt>
+  <dd><%= @mws_order_item.gift_message_text %></dd>
+
+  <dt>Mws order:</dt>
+  <dd><%= @mws_order_item.mws_order_id %></dd>
+
+  <dt>Amazon order:</dt>
+  <dd><%= @mws_order_item.amazon_order_id %></dd>
+
+</dl>

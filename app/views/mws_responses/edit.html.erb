@@ -1,0 +1,13 @@
+<div class="page-header">
+  <%= link_to aws_responses_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to @aws_response, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Editing aws_response</h1>
+</div>
+
+<%= render 'form' %>

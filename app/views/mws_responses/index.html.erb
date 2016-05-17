@@ -1,0 +1,39 @@
+<div class="page-header">
+  <%= link_to new_aws_response_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Aws response
+  <% end %>
+  <h1>Listing aws_responses</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Amazon request</th>
+            <th>Next token</th>
+            <th>Request type</th>
+            <th>Page num</th>
+            <th>Last updated before</th>
+            <th>Created before</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @aws_responses) do |aws_response| %>
+            <td><%= aws_response.amazon_request_id %></td>
+            <td><%= aws_response.next_token %></td>
+            <td><%= aws_response.request_type %></td>
+            <td><%= aws_response.page_num %></td>
+            <td><%= aws_response.last_updated_before %></td>
+            <td><%= aws_response.created_before %></td>
+            <td><%= link_to 'Show', aws_response %></td>
+        <td><%= link_to 'Edit', edit_aws_response_path(aws_response) %></td>
+        <td><%= link_to 'Destroy', aws_response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

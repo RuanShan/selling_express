@@ -1,0 +1,16 @@
+<%= simple_form_for(@aws_response) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :amazon_request_id %>
+    <%= f.input :next_token %>
+    <%= f.input :request_type %>
+    <%= f.input :page_num %>
+    <%= f.input :last_updated_before %>
+    <%= f.input :created_before %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

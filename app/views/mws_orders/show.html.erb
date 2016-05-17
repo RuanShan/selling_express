@@ -1,0 +1,98 @@
+<div class="page-header">
+  <%= link_to mws_orders_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_mws_order_path(@mws_order), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show mws_order</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Amazon order:</dt>
+  <dd><%= @mws_order.amazon_order_id %></dd>
+
+  <dt>Seller order:</dt>
+  <dd><%= @mws_order.seller_order_id %></dd>
+
+  <dt>Purchase date:</dt>
+  <dd><%= @mws_order.purchase_date %></dd>
+
+  <dt>Last update date:</dt>
+  <dd><%= @mws_order.last_update_date %></dd>
+
+  <dt>Order status:</dt>
+  <dd><%= @mws_order.order_status %></dd>
+
+  <dt>Fulfillment channel:</dt>
+  <dd><%= @mws_order.fulfillment_channel %></dd>
+
+  <dt>Sales channel:</dt>
+  <dd><%= @mws_order.sales_channel %></dd>
+
+  <dt>Order channel:</dt>
+  <dd><%= @mws_order.order_channel %></dd>
+
+  <dt>Ship service level:</dt>
+  <dd><%= @mws_order.ship_service_level %></dd>
+
+  <dt>Amount:</dt>
+  <dd><%= @mws_order.amount %></dd>
+
+  <dt>Currency code:</dt>
+  <dd><%= @mws_order.currency_code %></dd>
+
+  <dt>Address line 1:</dt>
+  <dd><%= @mws_order.address_line_1 %></dd>
+
+  <dt>Address line 2:</dt>
+  <dd><%= @mws_order.address_line_2 %></dd>
+
+  <dt>Address line 3:</dt>
+  <dd><%= @mws_order.address_line_3 %></dd>
+
+  <dt>City:</dt>
+  <dd><%= @mws_order.city %></dd>
+
+  <dt>County:</dt>
+  <dd><%= @mws_order.county %></dd>
+
+  <dt>District:</dt>
+  <dd><%= @mws_order.district %></dd>
+
+  <dt>State or region:</dt>
+  <dd><%= @mws_order.state_or_region %></dd>
+
+  <dt>Postal code:</dt>
+  <dd><%= @mws_order.postal_code %></dd>
+
+  <dt>Country code:</dt>
+  <dd><%= @mws_order.country_code %></dd>
+
+  <dt>Phone:</dt>
+  <dd><%= @mws_order.phone %></dd>
+
+  <dt>Number of items shipped:</dt>
+  <dd><%= @mws_order.number_of_items_shipped %></dd>
+
+  <dt>Number of items unshipped:</dt>
+  <dd><%= @mws_order.number_of_items_unshipped %></dd>
+
+  <dt>Marketplace:</dt>
+  <dd><%= @mws_order.marketplace_id %></dd>
+
+  <dt>Buyer name:</dt>
+  <dd><%= @mws_order.buyer_name %></dd>
+
+  <dt>Buyer email:</dt>
+  <dd><%= @mws_order.buyer_email %></dd>
+
+  <dt>Ship service level category:</dt>
+  <dd><%= @mws_order.ship_service_level_category %></dd>
+
+  <dt>Mws response:</dt>
+  <dd><%= @mws_order.mws_response_id %></dd>
+
+</dl>

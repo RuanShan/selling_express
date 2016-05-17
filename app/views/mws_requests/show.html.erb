@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amazon request:</strong>
+  <%= @mws_request.amazon_request_id %>
+</p>
+
+<p>
+  <strong>Request type:</strong>
+  <%= @mws_request.request_type %>
+</p>
+
+<%= link_to 'Edit', edit_mws_request_path(@mws_request) %> |
+<%= link_to 'Back', mws_requests_path %>

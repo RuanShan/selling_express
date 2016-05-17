@@ -1,0 +1,36 @@
+<%= simple_form_for(@mws_order_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :asin %>
+    <%= f.input :amazon_order_item_id %>
+    <%= f.input :seller_sku %>
+    <%= f.input :title %>
+    <%= f.input :quantity_ordered %>
+    <%= f.input :quantity_shipped %>
+    <%= f.input :item_price %>
+    <%= f.input :item_price_currency %>
+    <%= f.input :shipping_price %>
+    <%= f.input :shipping_price_currency %>
+    <%= f.input :gift_price %>
+    <%= f.input :gift_price_currency %>
+    <%= f.input :item_tax %>
+    <%= f.input :item_tax_currency %>
+    <%= f.input :shipping_tax %>
+    <%= f.input :shipping_tax_currency %>
+    <%= f.input :gift_tax %>
+    <%= f.input :gift_tax_currency %>
+    <%= f.input :shipping_discount %>
+    <%= f.input :shipping_discount_currency %>
+    <%= f.input :promotion_discount %>
+    <%= f.input :promotion_discount_currency %>
+    <%= f.input :gift_wrap_level %>
+    <%= f.input :gift_message_text %>
+    <%= f.input :mws_order_id %>
+    <%= f.input :amazon_order_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
