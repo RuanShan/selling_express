@@ -90,28 +90,28 @@ class MwsRequest < ActiveRecord::Base
 
     Rails.logger.debug "PROCESS_RESPONSE: response_xml is #{response_xml.inspect}"
 		# Update the request_id in our request parent object if not set already
-		if self.amazon_request_id.nil?
-			self.amazon_request_id = response_xml.request_id
-			self.save!
-		end
+		#if self.amazon_request_id.nil?
+		#	self.amazon_request_id = response_xml.request_id
+		#	self.save!
+		#end
 
 		# Create a new response object, link to the initial request
 		response = MwsResponse.new(
 			:request_type => self.request_type,
 			:mws_request_id => self.id,
-			:amazon_request_id => response_xml.request_id,
+		#	:amazon_request_id => response_xml.request_id,
 			:page_num => page_num
 		)
 
 		# If there is an error code, save the error in the record, sleep for some time to recover, and return the response id, indicating error
-		if response_xml.accessors.include?("code")
-		  #puts "PROCESS_RESPONSE: error code #{response_xml.message}"
-			response.error_code = response_xml.code
-			response.error_message = response_xml.message
-			response.save!
-			sleep sleep_if_error
-			return response.id
-		end
+	#	if response_xml.accessors.include?("code")
+	#	  #puts "PROCESS_RESPONSE: error code #{response_xml.message}"
+	#		response.error_code = response_xml.code
+	#		response.error_message = response_xml.message
+	#		response.save!
+	#		sleep sleep_if_error
+	#		return response.id
+	#	end
 		#puts "no error code"
 
 		# assign next token if given
@@ -211,7 +211,7 @@ class MwsRequest < ActiveRecord::Base
     r = MwsResponse.create(
       :request_type => self.request_type,
       :mws_request_id => self.id,
-      :amazon_request_id => response.request_id,
+      #:amazon_request_id => response.request_id,
       :feed_submission_id => response.feed_submission.id,
       :processing_status => response.feed_submission.feed_processing_status)
     #puts "SUBMIT_MWS_FEED response="+r.inspect
@@ -265,7 +265,7 @@ class MwsRequest < ActiveRecord::Base
     r = MwsResponse.create(
       :request_type => child_request.request_type,
       :mws_request_id => child_request.id,
-      :amazon_request_id => response.request_id,
+      #:amazon_request_id => response.request_id,
       :processing_status => fs.feed_processing_status)
     #puts "GET_MWS_FEED_STATUS response="+r.inspect
 

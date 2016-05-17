@@ -3,7 +3,7 @@ class CreateMwsResponses < ActiveRecord::Migration
     create_table :mws_responses do |t|
       t.references :mws_request
       t.string :amazon_request_id
-      t.string :next_token
+      t.string :next_token, limit: 1024
       t.datetime :last_updated_before
       t.datetime :created_before
       t.string :request_type
